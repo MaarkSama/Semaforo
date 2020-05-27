@@ -1,0 +1,390 @@
+    int a = 8;  //dichiaro i pin dei segmenti del display
+    int b = 9;  
+    int c = 12;  
+    int d = 11;  
+    int e = 10;  
+    int f = 7;  
+    int g = 6;
+    int verdeMacchine = 0; //definisco i pin dei rispettivi led
+    int arancioneMacchine = 1;
+    int rossoMacchine = 2;
+    int verdePedoni = 3;
+    int rossoPedoni = 4;
+    int pulsante = 5;  //i pin dei pulsanti
+    int pulsante2 = 13;
+    int stato_pulsante = 0; //imposto la variabile del pulsante (0=non attivo)
+    int stato_pulsante2 = 0;
+
+    void setup()
+{
+    pinMode(rossoPedoni, OUTPUT); //configuro i vari componenti per essere utilizzati come input/output
+    pinMode(verdePedoni, OUTPUT);
+    pinMode(verdeMacchine, OUTPUT);
+    pinMode(arancioneMacchine, OUTPUT);
+    pinMode(rossoMacchine, OUTPUT);
+    pinMode(pulsante, INPUT);
+    pinMode(pulsante2, INPUT);
+    pinMode(a, OUTPUT);   
+    pinMode(b, OUTPUT);   
+    pinMode(c, OUTPUT);   
+    pinMode(d, OUTPUT);   
+    pinMode(e, OUTPUT);   
+    pinMode(f, OUTPUT);   
+    pinMode(g, OUTPUT);  
+
+}
+
+void loop(){ 
+  
+    digitalWrite (verdeMacchine, HIGH); //per impostare lo stato iniziale dei led (HIGH)
+    digitalWrite (rossoPedoni, HIGH);
+    
+    stato_pulsante2=digitalRead (pulsante2); //per far leggere al programma lo stato dei pulsaanti se LOW/HIGH
+    stato_pulsante=digitalRead (pulsante);
+  
+    if (stato_pulsante == 1) //se il primo pulsante è premuto svolegere le seguenti istruzioni
+{
+  
+    delay (3000); //aspetto 3 secondi
+  
+  
+    digitalWrite(arancioneMacchine, HIGH); //arancione macchine si accende
+    digitalWrite(verdeMacchine, LOW); //verde delle macchine si spegne
+      
+    delay (100);
+      
+    digitalWrite(arancioneMacchine, LOW); //lampeggio arancione macchine
+      
+    delay (500); //aspetta mezzo secondo
+      
+    digitalWrite(arancioneMacchine, HIGH);
+      
+    delay (500);
+      
+    digitalWrite(arancioneMacchine, LOW);
+    
+    delay (500);
+      
+    digitalWrite(arancioneMacchine, HIGH);
+  
+    delay (500);
+  
+    digitalWrite(arancioneMacchine, LOW);
+    
+    delay (500);
+      
+    digitalWrite(arancioneMacchine, HIGH);
+  
+    delay (500);
+    
+    digitalWrite(arancioneMacchine, LOW); //arancione macchine spento
+    digitalWrite(rossoMacchine, HIGH); //rosso macchine acceso
+    digitalWrite(rossoPedoni, LOW); //rosso per predoni spento
+    digitalWrite(verdePedoni, HIGH); //verde pedoni acceso
+  
+  
+    delay (500); /aspetta mezzo secondo
+  
+    digitalWrite(a, HIGH); //conto alla rovescia semaforo (9)
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH);  
+  
+    delay(1000); //aspetta 1 secondo
+  
+    digitalWrite(a, HIGH); //8
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH);  
+  
+    delay(1000);
+  
+    digitalWrite(a, HIGH); //7
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW);   
+ 
+    delay(1000);
+  
+    digitalWrite(a, HIGH); //6
+    digitalWrite(b, LOW);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+  
+    delay(1000);
+  
+    digitalWrite(a, HIGH); //5
+    digitalWrite(b, LOW);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, LOW);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH);  
+  
+  
+    delay(1000);
+  
+    digitalWrite(a, LOW); //4
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH);  
+ 
+    delay(1000);
+  
+    digitalWrite(a, HIGH); //3
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, HIGH);  
+  
+    delay(1000);
+  
+    digitalWrite(a, HIGH); //2
+    digitalWrite(b, HIGH);
+    digitalWrite(c, LOW);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, LOW);
+    digitalWrite(g, HIGH);  
+  
+    delay(1000);
+  
+    digitalWrite(a, LOW); //1
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW);  
+ 
+    delay(1000);
+  
+    digitalWrite(a, HIGH); //0
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, LOW);  
+  
+    delay(1000);
+      
+    digitalWrite (verdePedoni, LOW); //verde pedoni spento	
+    digitalWrite (rossoPedoni, HIGH); //rosso per i pedoni acceso
+  
+      
+    digitalWrite(a, LOW); //semaforo spento
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW);
+      
+    digitalWrite(rossoMacchine, LOW); //rosso per macchine spento
+    
+    delay (300);
+
+    digitalWrite (verdeMacchine, HIGH); //verde macchine acceso
+}
+    if (stato_pulsante2 == 1) //se il secondo pulsante è premuto svolegere le seguenti istruzioni
+{    
+    delay (500); //aspetta mezzo secondo
+      
+    digitalWrite(verdeMacchine, HIGH); //tutto acceso
+    digitalWrite(arancioneMacchine, HIGH);
+    digitalWrite(rossoMacchine, HIGH);
+    digitalWrite(verdePedoni, HIGH);
+    digitalWrite(rossoPedoni, HIGH);
+    digitalWrite(a, HIGH);
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+      
+    delay (500); //aspetta mezzo secondo
+      
+    digitalWrite (verdeMacchine, LOW); //tutto spento e loop
+    digitalWrite (arancioneMacchine, LOW);
+    digitalWrite (rossoMacchine, LOW);
+    digitalWrite (verdePedoni, LOW);
+    digitalWrite (rossoPedoni, LOW);
+    digitalWrite(a, LOW);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW); 
+     
+    delay (500);
+      
+    digitalWrite (verdeMacchine, HIGH);
+    digitalWrite (arancioneMacchine, HIGH);
+    digitalWrite (rossoMacchine, HIGH);
+    digitalWrite (verdePedoni, HIGH);
+    digitalWrite (rossoPedoni, HIGH);
+    digitalWrite(a, HIGH);
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+    
+    delay (500);
+      
+    digitalWrite (verdeMacchine, LOW);
+    digitalWrite (arancioneMacchine, LOW);
+    digitalWrite (rossoMacchine, LOW);
+    digitalWrite (verdePedoni, LOW);
+    digitalWrite (rossoPedoni, LOW);
+    digitalWrite(a, LOW);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW); 
+     
+    delay (500);
+      
+    digitalWrite (verdeMacchine, HIGH);
+    digitalWrite (arancioneMacchine, HIGH);
+    digitalWrite (rossoMacchine, HIGH);
+    digitalWrite (verdePedoni, HIGH);
+    digitalWrite (rossoPedoni, HIGH);
+    digitalWrite(a, HIGH);
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+      
+    delay (500);
+      
+    digitalWrite (verdeMacchine, LOW);
+    digitalWrite (arancioneMacchine, LOW);
+    digitalWrite (rossoMacchine, LOW);
+    digitalWrite (verdePedoni, LOW);
+    digitalWrite (rossoPedoni, LOW);
+    digitalWrite(a, LOW);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW); 
+      
+    delay (500);
+      
+    digitalWrite (verdeMacchine, HIGH);
+    digitalWrite (arancioneMacchine, HIGH);
+    digitalWrite (rossoMacchine, HIGH);
+    digitalWrite (verdePedoni, HIGH);
+    digitalWrite (rossoPedoni, HIGH);
+    digitalWrite(a, HIGH);
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+      
+    delay (500);
+      
+    digitalWrite (verdeMacchine, LOW);
+    digitalWrite (arancioneMacchine, LOW);
+    digitalWrite (rossoMacchine, LOW);
+    digitalWrite (verdePedoni, LOW);
+    digitalWrite (rossoPedoni, LOW);
+    digitalWrite(a, LOW);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW); 
+    
+    delay (500);
+      
+    digitalWrite (verdeMacchine, HIGH);
+    digitalWrite (arancioneMacchine, HIGH);
+    digitalWrite (rossoMacchine, HIGH);
+    digitalWrite (verdePedoni, HIGH);
+    digitalWrite (rossoPedoni, HIGH);
+    digitalWrite(a, HIGH);
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+      
+    delay (500);
+      
+    digitalWrite (verdeMacchine, LOW);
+    digitalWrite (arancioneMacchine, LOW);
+    digitalWrite (rossoMacchine, LOW);
+    digitalWrite (verdePedoni, LOW);
+    digitalWrite (rossoPedoni, LOW);
+    digitalWrite(a, LOW);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW); 
+     
+    delay (500);
+      
+    digitalWrite (verdeMacchine, HIGH);
+    digitalWrite (arancioneMacchine, HIGH);
+    digitalWrite (rossoMacchine, HIGH);
+    digitalWrite (verdePedoni, HIGH);
+    digitalWrite (rossoPedoni, HIGH);
+    digitalWrite(a, HIGH);
+    digitalWrite(b, HIGH);
+    digitalWrite(c, HIGH);
+    digitalWrite(d, HIGH);
+    digitalWrite(e, HIGH);
+    digitalWrite(f, HIGH);
+    digitalWrite(g, HIGH); 
+      
+    delay (500);
+      
+    digitalWrite (verdeMacchine, LOW);
+    digitalWrite (arancioneMacchine, LOW);
+    digitalWrite (rossoMacchine, LOW);
+    digitalWrite (verdePedoni, LOW);
+    digitalWrite (rossoPedoni, LOW);
+    digitalWrite(a, LOW);
+    digitalWrite(b, LOW);
+    digitalWrite(c, LOW);
+    digitalWrite(d, LOW);
+    digitalWrite(e, LOW);
+    digitalWrite(f, LOW);
+    digitalWrite(g, LOW); 
+}    
+
+  }
